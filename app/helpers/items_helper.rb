@@ -1,2 +1,2 @@
-module ItemHelper
+module ItemsHelper
 end
