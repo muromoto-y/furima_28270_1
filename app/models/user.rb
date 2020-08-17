@@ -6,9 +6,17 @@ class User < ApplicationRecord
 
   has_many :items
   has_many :purchases
-         
-  validates :first_name, :last_name, :first_name_furigana, :last_name_furigana, :birthday, :nickname, presence: true
-  validates :password, presence: true, length: {minimum: 6 }, format: { with: /\A[a-z0-9]+\z/i}
-  validates :email, presence: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
 
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
+  with_options presence: true do
+  validates :first_name, format: { with: /\A[ぁ-んァ-ン一-龥]/}
+  validates :last_name, format: { with: /\A[ぁ-んァ-ン一-龥]/}
+  validates :first_name_furigana, format: { with: /\A[ァ-ン]/}
+  validates :last_name_furigana, format: { with: /\A[ァ-ン]/}
+  validates :nickname
+  validates :birthday
+  validates :password, length: {minimum: 6 }, format: { with: /\A[a-zA-Z0-9]+\z/}, confirmation: true
+  validates :email, format: { with: VALID_EMAIL_REGEX }
+  end
 end
