@@ -10,10 +10,10 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   with_options presence: true do
-  validates :first_name, format: { with: /\A[ぁ-んァ-ン一-龥]/}
-  validates :last_name, format: { with: /\A[ぁ-んァ-ン一-龥]/}
-  validates :first_name_furigana, format: { with: /\A[ァ-ン]/}
-  validates :last_name_furigana, format: { with: /\A[ァ-ン]/}
+  validates :first_name, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: '全角文字を使用してください'}
+  validates :last_name, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: '全角文字を使用してください'}
+  validates :first_name_furigana, format: { with: /\A[ァ-ン]/, message: '全角カタカナを使用してください'}
+  validates :last_name_furigana, format: { with: /\A[ァ-ン]/, message: '全角カタカナを使用してください'}
   validates :nickname
   validates :birthday
   validates :password, length: {minimum: 6 }, format: { with: /\A[a-zA-Z0-9]+\z/}, confirmation: true
