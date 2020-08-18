@@ -26,10 +26,10 @@
 | explanation     | text    | null: false |
 | price           | integer | null: false |
 | category        | integer | null: false |
-| Status          | integer | null: false |
-| shipping burden | integer | null: false |
-| shipping area   | integer | null: false |
-| shipping days   | integer | null: false |
+| status          | integer | null: false |
+| shipping_burden | integer | null: false |
+| shipping_area   | integer | null: false |
+| shipping_days   | integer | null: false |
 
 ### Association
 
