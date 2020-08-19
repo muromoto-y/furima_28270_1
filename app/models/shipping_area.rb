@@ -1,2 +1,2 @@
-class ShippingArea < ApplicationRecord
+class ShippingArea < ActiveHash::Base
 end
