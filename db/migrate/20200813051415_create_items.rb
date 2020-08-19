@@ -5,10 +5,10 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.text    :explanation,        null: false
       t.integer :price,              null: false
       t.integer :category_id,        null: false
-      t.integer :status,             null: false
-      t.integer :shipping_burden,    null: false
-      t.integer :shipping_area,      null: false
-      t.integer :shipping_days,      null: false
+      t.integer :status_id,             null: false
+      t.integer :shipping_burden_id,    null: false
+      t.integer :shipping_area_id,      null: false
+      t.integer :shipping_days_id,      null: false
       t.timestamps
     end
   end

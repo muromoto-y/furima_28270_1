@@ -18,7 +18,7 @@ class User < ApplicationRecord
     validates :nickname
     validates :birthday
     validates :password,            length: {minimum: 6 },
-                                    format: { with: VALID_PASSWORD_REGEX},#英語と数字が入っている、どちらも１文字以上ないとダメ
+                                    format: { with: VALID_PASSWORD_REGEX},
                                     confirmation: true
     validates :email,               format: { with: VALID_EMAIL_REGEX, }, 
                                     uniqueness: true
