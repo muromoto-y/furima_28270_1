@@ -6,17 +6,18 @@ class Item < ApplicationRecord
   has_one :purchase
   has_one_attached :image
 
-  # with_options presence: true do
-  #   validates :name,            
-  #   validates :explanation,     
-  #   validates :price,           numericality: { only_interger: true },
-  #                                             { greater_than: 299 },
-  #                                             { less_than: 10000000 }
-  #   validates :category,        numericality: { greater_than: 1 }
-  #   validates :status,          numericality: { greater_than: 1 }
-  #   validates :shipping_burden, numericality: { greater_than: 1 }
-  #   validates :shipping_area,   numericality: { greater_than: 1 }
-  #   validates :shipping_days,   numericality: { greater_than: 1 }
+  with_options presence: true do
+    validates :name                
+    validates :explanation         
+    validates :image               
+    validates :price,              numericality: { only_interger: true,
+                                                   greater_than: 299,
+                                                   less_than: 10000000 }
+    validates :category_id,        numericality: { greater_than: 1 }
+    validates :status_id,          numericality: { greater_than: 1 }
+    validates :shipping_burden_id, numericality: { greater_than: 1 }
+    validates :shipping_area_id,   numericality: { greater_than: 1 }
+    validates :shipping_days_id,   numericality: { greater_than: 1 }
 
-  # end
+  end
 end
