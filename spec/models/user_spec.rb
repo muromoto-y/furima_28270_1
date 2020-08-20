@@ -31,6 +31,7 @@ describe User, type: :model do
       it "ニックネームが空であると登録できない" do
         @user.nickname = ""
         @user.valid?
+        binding.pry
         expect(@user.errors.full_messages).to include("Nickname can't be blank")
       end
       it "メールアドレスが空であると登録できない" do
