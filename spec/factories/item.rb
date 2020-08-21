@@ -8,7 +8,7 @@ FactoryBot.define do
     shipping_burden_id { 2 }
     shipping_area_id   { 2 }
     shipping_days_id   { 2 }
-    user     
+    association :user     
     
     trait :with_image do
       after(:build) { |item| item.image.attach(io: File.open(Rails.root.join('public', 'images', 'test.png')), filename: 'test.png', content_type: 'image/png') }
