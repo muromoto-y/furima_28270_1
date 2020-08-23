@@ -7,7 +7,7 @@ FactoryBot.define do
     status_id          { 2 }
     shipping_burden_id { 2 }
     shipping_area_id   { 2 }
-    shipping_days_id   { 2 }
+    shipping_day_id   { 2 }
     association :user     
     
     trait :with_image do

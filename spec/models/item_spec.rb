@@ -52,9 +52,9 @@ describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Shipping area 配送元の地域を選択してください")
       end
       it "発送までの日数の情報のidが1だと出品できない" do
-        @item.shipping_days_id = 1
+        @item.shipping_day_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping days 発送までの期間を選択してください")
+        expect(@item.errors.full_messages).to include("Shipping day 発送までの期間を選択してください")
       end
       it "価格の情報がないと出品できない" do
         @item.price = ""

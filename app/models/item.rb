@@ -1,6 +1,12 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :category
+  belongs_to_active_hash :shipping_area
+  belongs_to_active_hash :shipping_burden
+  belongs_to_active_hash :shipping_day
+  belongs_to_active_hash :status
+  belongs_to_active_hash :user
+
 
   belongs_to :user
   has_one :purchase
@@ -17,7 +23,7 @@ class Item < ApplicationRecord
     validates :status_id,          numericality: { greater_than: 1 , message: "状態を選択してください"}
     validates :shipping_burden_id, numericality: { greater_than: 1 , message: "送料の負担者を選択してください"}
     validates :shipping_area_id,   numericality: { greater_than: 1 , message: "配送元の地域を選択してください"}
-    validates :shipping_days_id,   numericality: { greater_than: 1 , message: "発送までの期間を選択してください"}
+    validates :shipping_day_id,   numericality: { greater_than: 1 , message: "発送までの期間を選択してください"}
 
   end
 end

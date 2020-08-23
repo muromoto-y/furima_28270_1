@@ -29,7 +29,7 @@
 | status          | integer | null: false |
 | shipping_burden | integer | null: false |
 | shipping_area   | integer | null: false |
-| shipping_days   | integer | null: false |
+| shipping_day   | integer | null: false |
 
 ### Association
 

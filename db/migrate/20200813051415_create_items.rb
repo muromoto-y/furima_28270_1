@@ -8,7 +8,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer :status_id,             null: false
       t.integer :shipping_burden_id,    null: false
       t.integer :shipping_area_id,      null: false
-      t.integer :shipping_days_id,      null: false
+      t.integer :shipping_day_id,       null: false
       t.integer :user_id,               foreign_key: true
       t.timestamps
     end
