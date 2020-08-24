@@ -28,7 +28,6 @@ class ItemsController < ApplicationController
     if current_user.id != @item.user_id
        redirect_to item_path(@item.id)
     end
-    # binding.pry
   end
 
   def update
