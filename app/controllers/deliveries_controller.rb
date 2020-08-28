@@ -7,13 +7,18 @@ class DeliveriesController < ApplicationController
   
   def create    
     @deliverie = DeliveriePurchase.new(deliverie_params)
-    @deliverie.save
+    if @deliverie.valid?
+      @deliverie.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   private
 
   def deliverie_params
-    params.require(:deliverie_purchase).permit(:post_code, :city, :address, :phone_number, :prefecture)
+    params.require(:deliverie_purchase).permit(:post_code, :city, :address, :phone_number, :shipping_area_id, :purchase_id )
   end
 
 end
