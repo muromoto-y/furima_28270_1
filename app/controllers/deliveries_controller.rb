@@ -4,7 +4,10 @@ class DeliveriesController < ApplicationController
   def new
     @item = Item.find(params[:item_id])
     @deliverie = DeliveriePurchase.new
-   end 
+    if current_user.id == @item.user_id
+      redirect_to root_path
+    end
+  end 
   
   def create
     @deliverie = DeliveriePurchase.new(deliverie_params)
