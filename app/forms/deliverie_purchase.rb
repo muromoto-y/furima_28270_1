@@ -5,12 +5,14 @@ class DeliveriePurchase
 
   with_options presence: true do
     validates :post_code,        format:       { with: /\A\d{3}[-]\d{4}\z/}
-    validates :city         
-    validates :address      
-    validates :phone_number,     format:       {with: /\A[0-9]{10,11}\z/}
+    validates :city              
+    validates :address           
+    validates :phone_number,     format:       {with: /\A0\d{9,10}\z/}
     validates :shipping_area_id, numericality: { greater_than: 1 , message: "配送先の地域を選択してください"}
+    validates :token
+    validates :user_id
+    validates :item_id
   end
-  # validates :building_name
 
 
   def save
