@@ -3,11 +3,14 @@ class DeliveriePurchase
   include ActiveModel::Model
   attr_accessor :post_code, :city, :address, :phone_number, :shipping_area_id, :building_name, :user_id, :item_id, :token
 
+  POSTAL_CODE_REGEX = /\A\d{3}[-]\d{4}\z/
+  PHONE_NUMBER_REGEX = 
+
   with_options presence: true do
-    validates :post_code,        format:       { with: /\A\d{3}[-]\d{4}\z/}
+    validates :post_code,        format:       { with: POSTAL_CODE_REGEX}
     validates :city              
     validates :address           
-    validates :phone_number,     format:       {with: /\A0\d{9,10}\z/}
+    validates :phone_number,     format:       {with: /\A\d{10,11}\z/}
     validates :shipping_area_id, numericality: { greater_than: 1 , message: "配送先の地域を選択してください"}
     validates :token
     validates :user_id

@@ -18,6 +18,10 @@ describe Deliverie, type: :model do
         @deliverie.phone_number = "0760369483"
         expect(@deliverie).to be_valid
       end
+      it "建物番号が空でも登録できる" do
+        @deliverie.building_name = ""
+        expect(@deliverie).to be_valid
+      end
     end
 
     context '商品購入がうまくいかないとき' do
