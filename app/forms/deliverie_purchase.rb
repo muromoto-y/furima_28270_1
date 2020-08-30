@@ -10,7 +10,7 @@ class DeliveriePurchase
     validates :post_code,        format:       { with: POSTAL_CODE_REGEX}
     validates :city              
     validates :address           
-    validates :phone_number,     format:       {with: /\A\d{10,11}\z/}
+    validates :phone_number,     format:       {with: /\A\d{10,11}\z/},
                                  length:       { maximum: 11, message: 'Too long' }
     validates :shipping_area_id, numericality: { greater_than: 1 , message: "配送先の地域を選択してください"}
     validates :token
