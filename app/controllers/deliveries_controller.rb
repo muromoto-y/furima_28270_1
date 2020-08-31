@@ -13,6 +13,7 @@ class DeliveriesController < ApplicationController
   end 
   
   def create
+    @item = Item.find(params[:item_id])
     @deliverie = DeliveriePurchase.new(deliverie_params)
     if @deliverie.valid?
       pay_item

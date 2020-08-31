@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :items
   has_many :purchases
 
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i
 
   with_options presence: true do
@@ -20,8 +20,6 @@ class User < ApplicationRecord
     validates :password,            length: {minimum: 6 },
                                     format: { with: VALID_PASSWORD_REGEX},
                                     confirmation: true
-    validates :email,               format: { with: VALID_EMAIL_REGEX, }, 
-                                    uniqueness: true
-                    
+    validates :email,               uniqueness: true
   end
 end
