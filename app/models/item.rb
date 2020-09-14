@@ -26,4 +26,13 @@ class Item < ApplicationRecord
     validates :shipping_day_id,   numericality: { greater_than: 1 , message: "発送までの期間を選択してください"}
 
   end
+
+  def self.search(search)
+    if search != ""
+      Item.where('explanation LIKE(?)', "%#{search}%")
+    else
+      Item.all
+    end
+  end
+
 end
